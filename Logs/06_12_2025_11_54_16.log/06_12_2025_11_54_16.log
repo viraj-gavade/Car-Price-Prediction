@@ -1,0 +1,9 @@
+[2025-06-12 11:54:16,997] 31 root - INFO -Initiating the data ingestion process
+[2025-06-12 11:54:16,997] 32 root - INFO -Reading the data from the source
+[2025-06-12 11:54:17,075] 36 root - INFO -Data read successfully!
+[2025-06-12 11:54:17,075] 39 root - INFO -Making the directories
+[2025-06-12 11:54:17,076] 41 root - INFO -Directories made successfully
+[2025-06-12 11:54:17,076] 44 root - INFO -Applying the train test split
+[2025-06-12 11:54:17,079] 46 root - INFO -Train test split applied successfully!
+[2025-06-12 11:54:17,079] 48 root - INFO -Saving the train , test and raw data in respective files
+[2025-06-12 11:54:17,222] 52 root - INFO -Data saved successfully in the respective files

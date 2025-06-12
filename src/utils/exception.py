@@ -2,8 +2,6 @@ import sys
 import os
 import logging
 
-from logger import logging
-
 
 def error_message_details(error_message,error_deatils:sys):
     _,_,error_tab = error_deatils.exc_info()
