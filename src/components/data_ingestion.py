@@ -3,12 +3,12 @@ import os
 import pandas as pd
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
-
 # Add the project root directory to Python path
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
 # Now import local modules
+from src.components.data_transformation import DataTransformer,DataTransformerConfig
 from src.utils.logger import logging
 from src.utils.exception import CustomException
 
@@ -31,8 +31,7 @@ class DataIngestion:
             logging.info('Initiating the data ingestion process')
             logging.info('Reading the data from the source')
 
-            df = pd.read_csv('Notebook/cardekho_imputated.csv')
-            df.to_csv()
+            df = pd.read_csv('Notebook/cars.csv')
             logging.info('Data read successfully!')
 
 
@@ -51,6 +50,11 @@ class DataIngestion:
             df.to_csv(self.data_ingestion_config.raw_data_path)
             logging.info('Data saved successfully in the respective files')
 
+            return(
+                self.data_ingestion_config.train_data_path,
+                self.data_ingestion_config.test_data_path
+            )
+
         except Exception as e :
             print(e)
             logging.info(f'Exception Occurred : {e}')
@@ -59,4 +63,6 @@ class DataIngestion:
 
 if __name__ == "__main__":
     ingestion_obj = DataIngestion()
-    ingestion_obj.initiate_data_ingestion()
+    train_data  ,test_data  = ingestion_obj.initiate_data_ingestion()
+    data_transformation = DataTransformer()
+    train_array,test_array,_= data_transformation.initiate_data_transformation(train_data,test_data)

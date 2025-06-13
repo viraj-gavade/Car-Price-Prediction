@@ -1,0 +1,21 @@
+[2025-06-13 11:14:16,059] 31 root - INFO -Initiating the data ingestion process
+[2025-06-13 11:14:16,060] 32 root - INFO -Reading the data from the source
+[2025-06-13 11:14:16,080] 35 root - INFO -Data read successfully!
+[2025-06-13 11:14:16,080] 38 root - INFO -Making the directories
+[2025-06-13 11:14:16,081] 40 root - INFO -Directories made successfully
+[2025-06-13 11:14:16,081] 43 root - INFO -Applying the train test split
+[2025-06-13 11:14:16,085] 45 root - INFO -Train test split applied successfully!
+[2025-06-13 11:14:16,085] 47 root - INFO -Saving the train , test and raw data in respective files
+[2025-06-13 11:14:16,161] 51 root - INFO -Data saved successfully in the respective files
+[2025-06-13 11:14:16,179] 73 root - INFO -Read train and test data completed
+[2025-06-13 11:14:16,179] 74 root - INFO -Train dataframe shape: (3472, 8)
+[2025-06-13 11:14:16,179] 75 root - INFO -Test dataframe shape: (868, 8)
+[2025-06-13 11:14:16,181] 84 root - INFO -Input features columns: ['name', 'year', 'km_driven', 'fuel', 'seller_type', 'transmission', 'owner']
+[2025-06-13 11:14:16,182] 85 root - INFO -Target feature shape - Train: (3472,), Test: (868,)
+[2025-06-13 11:14:16,182] 56 root - INFO -Numerical features: ['year', 'km_driven']
+[2025-06-13 11:14:16,182] 57 root - INFO -Categorical features: ['name', 'fuel', 'seller_type', 'transmission', 'owner']
+[2025-06-13 11:14:16,182] 90 root - INFO -Applying preprocessing object on training dataframe
+[2025-06-13 11:14:16,329] 95 root - INFO -Applying preprocessing object on testing dataframe
+[2025-06-13 11:14:16,495] 107 root - INFO -Train array shape: (3472, 1336)
+[2025-06-13 11:14:16,496] 108 root - INFO -Test array shape: (868, 1336)
+[2025-06-13 11:14:16,496] 125 root - ERROR -Error in initiate_data_transformation: save_object() got an unexpected keyword argument 'filepath'
