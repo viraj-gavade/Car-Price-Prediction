@@ -1,0 +1,27 @@
+/* Custom styles for Car Price Prediction app */
+
+/* Additional styling can be added here to override or extend Tailwind CSS */
+
+/* Custom animation for the hero section */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Custom styling for form focus states */
+.form-input:focus {
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
+}
+
+/* Custom hover effects */
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}

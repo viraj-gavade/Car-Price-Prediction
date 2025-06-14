@@ -15,22 +15,25 @@ class PredictionPipeline :
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
             model_path = os.path.join(base_dir,'artifacts','model.pkl')
-            preprocessor_path = os.path.join(base_dir,'artifacts','preprocessor.pkl')
+            preprocessor_path = os.path.join(base_dir,'artifacts','processor.pkl')  # Fixed filename to match what's in artifacts
 
+            logging.info(f"Loading preprocessor from {preprocessor_path}")
             preprocessor_obj = load_object(preprocessor_path)
-
+            
+            logging.info(f"Loading model from {model_path}")
             model_obj = load_object(model_path)
 
+            logging.info("Transforming features using preprocessor")
             scaled_data = preprocessor_obj.transform(features)
 
-            prediction = preprocessor_obj.predict(scaled_data)
+            logging.info("Making prediction with model")
+            prediction = model_obj.predict(scaled_data)  # Fixed: using model_obj instead of preprocessor_obj
 
-
-
+            logging.info(f"Prediction result: {prediction}")
             return prediction
         
         except Exception as e:
-            raise CustomException
+            raise CustomException(e, sys)
 
 
 
