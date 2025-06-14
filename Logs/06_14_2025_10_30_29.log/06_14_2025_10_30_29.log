@@ -1,0 +1,21 @@
+[2025-06-14 10:30:30,026] 33 root - INFO -Initiating the data ingestion process
+[2025-06-14 10:30:30,026] 34 root - INFO -Reading the data from the source
+[2025-06-14 10:30:30,045] 37 root - INFO -Data read successfully!
+[2025-06-14 10:30:30,045] 40 root - INFO -Making the directories
+[2025-06-14 10:30:30,046] 42 root - INFO -Directories made successfully
+[2025-06-14 10:30:30,046] 45 root - INFO -Applying the train test split
+[2025-06-14 10:30:30,049] 47 root - INFO -Train test split applied successfully!
+[2025-06-14 10:30:30,050] 49 root - INFO -Saving the train , test and raw data in respective files
+[2025-06-14 10:30:30,116] 53 root - INFO -Data saved successfully in the respective files
+[2025-06-14 10:30:30,134] 73 root - INFO -Read train and test data completed
+[2025-06-14 10:30:30,134] 74 root - INFO -Train dataframe shape: (3472, 8)
+[2025-06-14 10:30:30,134] 75 root - INFO -Test dataframe shape: (868, 8)
+[2025-06-14 10:30:30,136] 84 root - INFO -Input features columns: ['name', 'year', 'km_driven', 'fuel', 'seller_type', 'transmission', 'owner']
+[2025-06-14 10:30:30,137] 85 root - INFO -Target feature shape - Train: (3472,), Test: (868,)
+[2025-06-14 10:30:30,137] 56 root - INFO -Numerical features: ['year', 'km_driven']
+[2025-06-14 10:30:30,137] 57 root - INFO -Categorical features: ['name', 'fuel', 'seller_type', 'transmission', 'owner']
+[2025-06-14 10:30:30,138] 90 root - INFO -Applying preprocessing object on training dataframe
+[2025-06-14 10:30:30,249] 95 root - INFO -Applying preprocessing object on testing dataframe
+[2025-06-14 10:30:30,351] 107 root - INFO -Train array shape: (3472, 1336)
+[2025-06-14 10:30:30,351] 108 root - INFO -Test array shape: (868, 1336)
+[2025-06-14 10:30:30,363] 116 root - INFO -Preprocessing object saved successfully

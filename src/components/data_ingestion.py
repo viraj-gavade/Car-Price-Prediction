@@ -3,12 +3,14 @@ import os
 import pandas as pd
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
+
 # Add the project root directory to Python path
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
 # Now import local modules
 from src.components.data_transformation import DataTransformer,DataTransformerConfig
+from src.components.model_trainer import ModelTrainer,ModelTrainerConfig
 from src.utils.logger import logging
 from src.utils.exception import CustomException
 
@@ -66,3 +68,5 @@ if __name__ == "__main__":
     train_data  ,test_data  = ingestion_obj.initiate_data_ingestion()
     data_transformation = DataTransformer()
     train_array,test_array,_= data_transformation.initiate_data_transformation(train_data,test_data)
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_training(train_array=train_array,test_array=test_array))
