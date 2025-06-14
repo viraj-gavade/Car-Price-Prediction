@@ -1,6 +1,6 @@
-
 from src.utils.exception import CustomException
 from src.utils.object_fucntions import load_object
+from src.utils.logger import logging
 import os
 import sys
 import pandas as pd
@@ -49,6 +49,7 @@ class CustomData :
 
     def get_data_as_dataframe(self):
         try:
+            logging.info("Creating dataframe from provided data")
             custom_data_input_dict = {
                 'name':[self.name],
                 'year':[self.year],
@@ -56,13 +57,15 @@ class CustomData :
                 'km_driven':[self.km_driven],
                 'fuel':[self.fuel],
                 'seller_type':[self.seller_type],
+                'transmission':[self.transmission],
                 'owner':[self.owner]
-
             }
 
             df = pd.DataFrame(custom_data_input_dict)
+            logging.info(f"Created dataframe with shape: {df.shape}")
+            return df
         except Exception as e:
-            raise CustomException
-        
+            logging.error("Error occurred while creating dataframe")
+            raise CustomException(e, sys)
 
-        
+
