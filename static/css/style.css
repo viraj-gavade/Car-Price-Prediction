@@ -25,3 +25,86 @@
 .hover-lift:hover {
     transform: translateY(-5px);
 }
+
+/* Custom styles beyond Tailwind */
+
+/* Premium design elements */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark .glass-effect {
+    background: rgba(17, 24, 39, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom button styles */
+.btn-premium {
+    box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.39);
+    transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+}
+
+.dark .btn-premium {
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.5);
+}
+
+.dark .btn-premium:hover {
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Gradient text for premium look */
+.gradient-text {
+    background: linear-gradient(to right, #0EA5E9, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text {
+    background: linear-gradient(to right, #3B82F6, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Card hover effects */
+.premium-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .premium-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0EA5E9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0284c7;
+}

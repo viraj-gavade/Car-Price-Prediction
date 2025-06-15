@@ -150,9 +150,9 @@
                 </div>
             </form>
 
-            <!-- Prediction Result (Initially Hidden) -->
+            <!-- Prediction Result -->
             {% if prediction_made %}
-            <div class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+            <div class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200 animate-fade-in">
                 <h2 class="text-xl font-semibold text-dark mb-4">Estimated Car Price</h2>
                 <div class="flex justify-center">
                     <div class="text-4xl font-bold text-primary">₹ {{ predicted_price | thousands_separator }}</div>
@@ -208,11 +208,10 @@
     <!-- Custom JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // You can add client-side validation or other interactivity here
             const form = document.getElementById('predictionForm');
             
+            // Basic form validation
             form.addEventListener('submit', function(e) {
-                // Basic form validation example
                 const year = document.getElementById('year').value;
                 const kmDriven = document.getElementById('km_driven').value;
                 
@@ -226,6 +225,27 @@
                     alert('Kilometers driven cannot be negative');
                 }
             });
+
+            // Populate form fields with previous values after form submission
+            {% if form_data %}
+                document.getElementById('car_name').value = "{{ form_data.car_name }}";
+                document.getElementById('year').value = "{{ form_data.year }}";
+                document.getElementById('fuel').value = "{{ form_data.fuel }}";
+                document.getElementById('transmission').value = "{{ form_data.transmission }}";
+                document.getElementById('km_driven').value = "{{ form_data.km_driven }}";
+                document.getElementById('owner').value = "{{ form_data.owner }}";
+                document.getElementById('seller_type').value = "{{ form_data.seller_type }}";
+            {% endif %}
+
+            // Scroll to prediction result if available
+            {% if prediction_made %}
+                const resultElement = document.querySelector('.animate-fade-in');
+                if (resultElement) {
+                    setTimeout(() => {
+                        resultElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 200);
+                }
+            {% endif %}
         });
     </script>
 </body>

@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, jsonify
 import os
 import pandas as pd
@@ -25,11 +24,13 @@ def predict():
     else:
         try:
             # Get form data
+            print('Received form data for prediction')
             name = request.form.get('name')
             year = int(request.form.get('year'))
             km_driven = int(request.form.get('km_driven'))
             fuel = request.form.get('fuel')
-            seller_type = request.form.get('seller_type')
+            seller_type = request.form.get('seller_t' \
+            'ype')
             transmission = request.form.get('transmission')
             owner = request.form.get('owner')
             
@@ -52,22 +53,26 @@ def predict():
             prediction_pipeline = PredictionPipeline()
             prediction = prediction_pipeline.predict(df)
             
-            # Format prediction as INR
-            formatted_prediction = f"₹ {int(prediction[0]):,}"
+            # Format prediction as INR - removing f-string to match template expectations
+            predicted_price = int(prediction[0])
             
-            logging.info(f"Prediction made: {formatted_prediction} for {name}")
+            logging.info(f"Prediction made: {predicted_price} for {name}")
+            
+            # Store form data to repopulate the form
+            form_data = {
+                'car_name': name,
+                'year': year,
+                'km_driven': km_driven,
+                'fuel': fuel,
+                'seller_type': seller_type,
+                'transmission': transmission,
+                'owner': owner
+            }
             
             return render_template('predict.html', 
-                                  prediction=formatted_prediction,
-                                  car_details={
-                                      'name': name,
-                                      'year': year,
-                                      'km_driven': km_driven,
-                                      'fuel': fuel,
-                                      'seller_type': seller_type,
-                                      'transmission': transmission,
-                                      'owner': owner
-                                  })
+                                  prediction_made=True,
+                                  predicted_price=predicted_price,
+                                  form_data=form_data)
             
         except Exception as e:
             logging.error(f"Error in prediction: {str(e)}")
